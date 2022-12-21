@@ -318,6 +318,7 @@ img{
         margin: 12px;
 }
 .border-team{
+        display: flex;
         border-radius: 100%;
         width: 40px;
         height: 40px;
@@ -326,6 +327,7 @@ img{
 }
 .border-team:hover,
 .border-team:focus{
+        border-radius: 100%;
         background: #404BBF;
 }
 .list-social{
@@ -333,7 +335,7 @@ img{
         margin: 32px 16px;
         cursor: pointer;
 }
-.list-social .border-team +.border-team{
+.list-social .position-list +.position-list{
         margin-left: 24px;
 }
 /* ------------customers------- */
@@ -417,10 +419,10 @@ img{
         margin-top: 100px;
         margin-left: 120px;
 }
-.footer-item{
+.footer-item, .qwe{
         display: flex;
 }
-.list-footer .border-team-footer +.border-team-footer{
+.list-footer .qwe +.qwe{
         margin-left: 16px;
 }
 .list-team-footer{
