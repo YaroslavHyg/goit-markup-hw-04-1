@@ -53,7 +53,7 @@
                     Effective Solutions <br> for Your Business
                 </h1>
                 <div class="button">
-                    <button type="button" class="btn"><div class="btn_text">Order Service</div> </button>
+                    <button class="btn" type="button" data-modal-open><div class="btn_text">Order Service</div> </button>
                 </div>
             </div>
         </section>
@@ -269,4 +269,15 @@
                 </ul> 
             </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button class="modal-cross" data-modal-close>
+                <svg class="cross" wigth="8px" height="8px">
+                    <use href="./images/svg/sprite.svg#icon-cross"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="./modal/modal.js"></script>
 </body>
+</html>
