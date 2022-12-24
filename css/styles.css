@@ -16,7 +16,7 @@ img{
         --card-set-gap-left: 24px;
 
         --anim-fast: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-        --anim-slow: 1800ms cubic-bezier(0.4, 0, 0.2, 1);
+        --anim-slow: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -146,6 +146,21 @@ img{
         border-radius: 2px;
         transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.link-color.active::before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        display: block;
+        width: 100%;
+        height: 4px;
+        border-radius: 4px;
+        background-color: #404BBF;
+}
+
+
+
 .link-color:hover::after{
         opacity: 1;
 }
@@ -191,6 +206,10 @@ img{
         line-height: 1.5;
         color: #434455;
         letter-spacing: 0.02em;
+}
+.link-color.active{
+        position: relative;
+        color:#4D5AE5;
 }
 
 /* --------------HERO----------- */
@@ -533,6 +552,7 @@ img{
         position: relative;
         overflow: hidden;
         height: 300px;
+        
 }
 
 .product::before{
@@ -543,17 +563,20 @@ img{
         background-color: rgb(77, 90, 229, 0.9);
         opacity: 0;
         transform: translatey(100%);
+        transition: visibility 250ms var(--anim-slow),
+        opacity var(--anim-slow);
 }
 
 .product:hover::before{
-        opacity: 1;
+        opacity: 0.9;
         transform: translatey(0);
         transition: transform 250ms  cubic-bezier(0.4, 0, 0.2, 1);
+        
 }
 .product:focus::before{
-        opacity: 1;
+        opacity: 0.9;
         transform: translatey(0);
-        transition: transform 250ms ease;
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .text-on-foto {
         top: 40px;
@@ -576,9 +599,9 @@ img{
         height: 100%;
 
         background-color: rgba(46, 47, 66, 0.4);
-        transition: visibylity;
-        transition: opacity 250ms var(--anim-fast) ,
-        transform 250ms var(--anim-fast) ;
+        backdrop-filter: blur(10px);
+        transition: visibility  250ms var(--anim-slow),
+        opacity var(--anim-slow);
 }
 
 .modal{
@@ -591,6 +614,7 @@ img{
         transform: translate(-50%, -50%);
 
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+        
         border-radius: 4px;
         background-color: #FCFCFC;
 }
