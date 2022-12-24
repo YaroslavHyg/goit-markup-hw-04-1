@@ -15,8 +15,8 @@ img{
         --card-set-gap-top: 61px;
         --card-set-gap-left: 24px;
 
-        --anim-fast: 300ms ease;
-        --anim-slow: 1800ms ease-out;
+        --anim-fast: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        --anim-slow: 1800ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -24,6 +24,7 @@ img{
         font-family: Roboto, sans-serif;
         margin-left: auto;
         margin-right: auto;
+        padding-top: 72px;
 }
 
 
@@ -79,9 +80,15 @@ img{
 
 /* ----------HEADER--------- */
 .header {
+        z-index: 1;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
         background: #FFFFFF;
         height: 72px;
         box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+        
 }
 
 .logo {
@@ -122,7 +129,31 @@ img{
 .link-color {
         color: #2E2F42;
         text-decoration: none;
+        position: relative;
+        padding-bottom: 24px;
+        padding-top: 24px;
 }
+.link-color::after{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: #4D5AE5;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        border-radius: 2px;
+        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-color:hover::after{
+        opacity: 1;
+}
+.link-color:focus::after{
+        opacity: 1;
+}
+
+        
 .link :hover {
         color: #434455;
 }
@@ -464,13 +495,12 @@ img{
 }
 
 .list-foto > .item-foto{
-        flex-basis: calc(100% / 3) -24px;
         margin-left: var(--card-set-gap-left);
         margin-top: var(--card-set-gap-top);
         box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
         outline: 0.5px solid #F4F4FD;
 }
-.list-foto>.item-foto:hover{
+.list-foto >.item-foto:hover{
         box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
         outline: 0.5px solid #F4F4FD;
 }
@@ -478,7 +508,8 @@ img{
         flex-wrap: wrap;
         margin-top: calc(-1* var(--card-set-gap-top));
         margin-left: calc(-1* var(--card-set-gap-left));
-        margin-bottom: 61px;}
+        margin-bottom: 61px;
+}
 .card-content {
         margin-top: 32px;
         margin-bottom: 32px;
@@ -488,12 +519,53 @@ img{
         background: #4D5AE5;
         color: #E7E9FC;
 }
-.actions{
-        display: flex;
-        margin: 0px;
-        padding: 0px;
-        list-style: none;
-        outline: 1px solid black;
+
+.product:hover .text-on-foto{
+        opacity: 1;
+        transform: translatey(0);
+}
+.product:focus .text-on-foto{
+        opacity: 1;
+        transform: translatey(0);
+}
+.product{
+        display: block;
+        position: relative;
+        overflow: hidden;
+        height: 300px;
+}
+
+.product::before{
+        content:'';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(77, 90, 229, 0.9);
+        opacity: 0;
+        transform: translatey(100%);
+}
+
+.product:hover::before{
+        opacity: 1;
+        transform: translatey(0);
+        transition: transform 250ms  cubic-bezier(0.4, 0, 0.2, 1);
+}
+.product:focus::before{
+        opacity: 1;
+        transform: translatey(0);
+        transition: transform 250ms ease;
+}
+.text-on-foto {
+        top: 40px;
+        left: 32px;
+        display: block;
+        position: absolute;
+        width: 296px;
+        height: 100%;
+        opacity: 0;
+        transform: translatey(100%);
+        transition: transform 250ms  cubic-bezier(0.4, 0, 0.2, 1);
+        color: #F4F4FD;
 }
 /* ------MODALka--------- */
 .backdrop{
@@ -502,10 +574,11 @@ img{
         left: 0;
         width: 100%;
         height: 100%;
+
         background-color: rgba(46, 47, 66, 0.4);
         transition: visibylity;
-        transition: opacity var(--anim-slow) 200ms,
-        transform var(--anim-slow);
+        transition: opacity 250ms var(--anim-fast) ,
+        transform 250ms var(--anim-fast) ;
 }
 
 .modal{
@@ -514,15 +587,13 @@ img{
         left: 50%;
         width: 408px;
         height: 576px;
+
         transform: translate(-50%, -50%);
 
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
         border-radius: 4px;
         background-color: #FCFCFC;
-
-        
 }
-
 .modal-cross{
         position: absolute;
         top: 24px;
@@ -531,6 +602,7 @@ img{
         width: 24px;
         height: 24px;
         border-radius: 50%;
+
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -543,4 +615,3 @@ img{
         pointer-events: none;
         opacity: 0;
 }
-        
