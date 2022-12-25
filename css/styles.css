@@ -171,12 +171,15 @@ img{
         
 .link :hover {
         color: #434455;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link :focus {
         color: #434455;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link :active {
         color: #4D5AE5;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .adress-style {
@@ -196,9 +199,11 @@ img{
 }
 .adress-color :hover {
         color: #4D5AE5;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .adress-color :focus{
         color: #4D5AE5;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .adress-link{
         text-decoration: none;
@@ -210,6 +215,7 @@ img{
 .link-color.active{
         position: relative;
         color:#4D5AE5;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --------------HERO----------- */
@@ -265,9 +271,11 @@ img{
 .btn:hover{
         background: #4D5AE5;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn:active{
         background-color:  #404BBF;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* -------------CONTENT------------- */
 
@@ -382,6 +390,7 @@ img{
 .border-team:focus{
         border-radius: 100%;
         background: #404BBF;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-social{
         justify-content: center;
@@ -407,6 +416,7 @@ img{
 .list-compani:hover{
         fill: #4D5AE5;
         border: 1px solid #4D5AE5;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-compani {
         width: 168px;
@@ -467,6 +477,7 @@ img{
 .border-team-footer:hover,      
 .border-team-footer:focus{
         background: #31D0AA;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-social-footer{
         margin-top: 100px;
@@ -496,6 +507,7 @@ img{
         padding: 8px 16px;
         border: 1px solid #E7E9FC;
         border-radius: 4px;
+        opacity: 1;
 }
 .list-button .item +.item {
         margin-left: 24px;
@@ -511,6 +523,7 @@ img{
         border-radius: 4px;
         background: #4D5AE5;
         color: #E7E9FC;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-foto > .item-foto{
@@ -527,7 +540,7 @@ img{
         flex-wrap: wrap;
         margin-top: calc(-1* var(--card-set-gap-top));
         margin-left: calc(-1* var(--card-set-gap-left));
-        margin-bottom: 61px;
+        margin-bottom: 120px;
 }
 .card-content {
         margin-top: 32px;
@@ -537,8 +550,10 @@ img{
 .text-btn:active{
         background: #4D5AE5;
         color: #E7E9FC;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
 }
-
+/* -------------FOTO------------ */
 .product:hover .text-on-foto{
         opacity: 1;
         transform: translatey(0);
@@ -552,7 +567,22 @@ img{
         position: relative;
         overflow: hidden;
         height: 300px;
-        
+}
+.owerlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        padding-top: 40px;
+        padding-left: 32px;
+        padding-right: 32px;
+        width: 100%;
+        height: 100%;
+        transition: transform var(--anim-slow);  
+        background-color: rgb(64, 75, 191, 0.7);     
+}
+.item-foto:hover .owerlay{
+        transform: translateY(0);
 }
 
 .product::before{
@@ -562,32 +592,9 @@ img{
         height: 100%;
         background-color: rgb(77, 90, 229, 0.9);
         opacity: 0;
-        transform: translatey(100%);
-        transition: visibility 250ms var(--anim-slow),
-        opacity var(--anim-slow);
 }
 
-.product:hover::before{
-        opacity: 0.9;
-        transform: translatey(0);
-        transition: transform 250ms  cubic-bezier(0.4, 0, 0.2, 1), opacity var(--anim-fast);
-        
-}
-.product:focus::before{
-        opacity: 0.9;
-        transform: translatey(0);
-        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity var(--anim-fast);
-}
 .text-on-foto {
-        top: 40px;
-        left: 32px;
-        display: block;
-        position: absolute;
-        width: 296px;
-        height: 100%;
-        opacity: 0;
-        transform: translatey(100%);
-        transition: transform 250ms  cubic-bezier(0.4, 0, 0.2, 1), opacity var(--anim-fast);
         color: #F4F4FD;
 }
 /* ------MODALka--------- */
@@ -600,7 +607,7 @@ img{
 
         background-color: rgba(46, 47, 66, 0.4);
         backdrop-filter: blur(10px);
-        transition: visibility  250ms var(--anim-slow),
+        transition: visibility var(--anim-slow),
         opacity var(--anim-slow);
 }
 
